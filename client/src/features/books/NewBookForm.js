@@ -111,8 +111,7 @@ function NewBookForm() {
         setPubEstYear('');
         setPubGenre('');
         setPubHidden(true);
-    }
-
+    };
 
     return(
         <div>

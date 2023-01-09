@@ -12,7 +12,7 @@ function BookCard({ book }) {
         history.push(`/books/${book.id}`)
     };
 
-    function handleDelete(id) {
+    function handleDelete() {
         dispatch(deleteBook(book.id));
     };
 

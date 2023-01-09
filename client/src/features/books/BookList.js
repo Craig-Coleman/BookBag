@@ -49,11 +49,11 @@ function BookList() {
         };
     }, [deleteBook, books, dispatch]);
 
-      const bookList = books.map(book => {
+    const bookList = books.map(book => {
         return(
             <BookCard key={book.id} id={book.id} book={book}/>
         );
-      });
+    });
 
     return(
         <div>

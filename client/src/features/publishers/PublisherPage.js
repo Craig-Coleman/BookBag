@@ -20,6 +20,6 @@ function PublisherPage() {
             </div>
         </div>
     )
-}
+};
 
 export default PublisherPage;
