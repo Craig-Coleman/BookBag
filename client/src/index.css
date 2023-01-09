@@ -5,9 +5,234 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin-left: 200px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.sidenav {
+  height: 100%;
+  width: 30;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #6699cc;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color:#4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #6699cc;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.book_info {
+  border: grey solid 1px;
+  box-shadow: 3px 4px #554be0;
+  margin-top: 40px;
+}
+
+.book_info_image {
+  display: block;
+  margin: 0 auto;
+  height: 12rem;
+  width: auto;
+}
+
+.book_info_data {
+  text-align: center;
+}
+
+.info_page_title {
+  text-align: center;
+  margin-bottom: -10px;
+  color: #0E3386;
+  text-decoration: underline;
+}
+
+.edit_button {
+  position: relative;
+  background-color: #6699cc;
+  border: none;
+  border-radius: 5px;
+  height: 3rem;
+  width: max-content;
+  color: whitesmoke;
+  font-size: 18px;
+  justify-self: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.card {
+  text-align: center;
+  border: grey solid 1px;
+  width: 15rem;
+  height: 25rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  box-shadow: 3px 4px #554be0;
+  padding-bottom: 50px;
+  vertical-align: top;
+}
+
+.card_image {
+  justify-self: center;
+  height: 12rem;
+  max-width: 200px;
+  width: auto;
+}
+
+.card_info_button {
+  position: relative;
+  background-color: #6699cc;
+  border: none;
+  border-radius: 5px;
+  height: 3rem;
+  width: max-content;
+  color: whitesmoke;
+  font-size: 18px;
+  justify-self: center;
+  margin-bottom: 10px;
+}
+
+#user_image {
+  display: block;
+  margin: 0 auto;
+  height: 15rem;
+  width: auto;
+  margin-bottom: 30px;
+}
+
+.delete_button {
+  position: relative;
+  background-color: #C00000; 
+  border: none;
+  border-radius: 5px;
+  height: 3rem;
+  width: max-content;
+  color: whitesmoke;
+  font-size: 18px;
+  justify-self: center;
+}
+
+.add_btn {
+  position: relative;
+  background-color:  #6699cc;
+  border: none;
+  border-radius: 5px;
+  height: 3rem;
+  width: 125px;
+  color: whitesmoke;
+  font-size: 18px;
+  justify-self: center;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+#header {
+  background-image: url('https://collegeexpertmn.com/wp-content/uploads/2016/09/Books-on-shelves-2.jpg')
+}
+
+#header_name {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+#logout_btn {
+  position: relative;
+  float: right;
+  background-color: #6699cc;
+  border: none;
+  border-radius: 5px;
+  height: 3rem;
+  width: max-content;
+  color: whitesmoke;
+  font-size: 18px;
+  justify-self: center;
+  margin-bottom: 10px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #0E3386;
+  text-decoration: underline;
+}
+
+.form_label {
+  color: #0E3386;
+  text-decoration: underline;
+  margin-bottom: 30px;
+}
+
+.field_label {
+  text-decoration: underline;
+}
+
+.summary {
+  text-decoration: underline;
+}
+
+.error {
+  background-color: red;
+  font-weight: bold;
+  border-radius: 4px;
+  max-width: 500px;
+  padding: 7px;
+  color: white;
 }
