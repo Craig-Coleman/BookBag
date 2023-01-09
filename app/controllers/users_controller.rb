@@ -5,8 +5,6 @@ class UsersController < ApplicationController
 
     skip_before_action :authorize, only: [:create] 
 
-
-
     def show
         user = User.find_by(id: session[:user_id])
         if user 

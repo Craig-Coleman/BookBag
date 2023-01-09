@@ -9,27 +9,6 @@ class AuthorsController < ApplicationController
         render json: authors
     end
 
-    def show
-        author = Author.find(params[:id])
-        render json: author
-    end
-
-    def create 
-        author = Author.create!(author_params)
-        render json: author, status: :created
-    end
-
-    def update 
-        author = Author.find(params[:id])
-        author.update!(author_params)
-    end
-
-    def destroy
-        author = Author.find(params[:id])
-        author.destroy 
-        head :no_content
-    end
-
     private
 
     def author_params

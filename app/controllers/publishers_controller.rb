@@ -9,28 +9,6 @@ class PublishersController < ApplicationController
         render json: publishers
     end
 
-    def show
-        publisher = Publisher.find(params[:id])
-        render json: publisher
-    end
-
-    def create 
-        publisher = Publisher.create!(publisher_params)
-        render json: publisher, status: :created
-    end
-
-    def update 
-        publisher = Publisher.find(params[:id])
-        publisher.update!(publisher_params)
-        render json: publisher
-    end
-
-    def destroy
-        publisher = Publisher.find(params[:id])
-        publisher.destroy 
-        head :no_content
-    end
-
     private
 
     def publisher_params
