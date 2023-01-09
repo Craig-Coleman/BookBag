@@ -35,7 +35,6 @@ function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log('fetching')
     dispatch(fetchBooks());
     dispatch(fetchPublishers());
     dispatch(fetchAuthors());
