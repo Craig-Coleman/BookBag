@@ -38,7 +38,7 @@ function SignUp() {
         <div>
             <button className="add_btn" type="button" onClick={handleClick}>Sign Up</button>
             <div hidden={hidden} >
-            <h1>Login</h1>
+            <h1>Sign Up</h1>
             <h3>Please enter your desired Username and Password</h3>
             <form id="signUpForm" onSubmit={(event) => handleSignUp(event)} >
                 <input
