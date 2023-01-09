@@ -29,16 +29,21 @@ function App() {
     fetch("/me").then((res) => {
         if (res.ok) {
           res.json().then((user) => 
-            {dispatch(userAdded(user))});
+            {
+              dispatch(userAdded(user))
+              dispatch(fetchBooks());
+              dispatch(fetchPublishers());
+              dispatch(fetchAuthors());
+            });
         };
     });
-  }, [dispatch]);
+  }, []);
 
-  useEffect(() => {
-    dispatch(fetchBooks());
-    dispatch(fetchPublishers());
-    dispatch(fetchAuthors());
-  }, [user, dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchBooks());
+  //   dispatch(fetchPublishers());
+  //   dispatch(fetchAuthors());
+  // }, [user, dispatch]);
 
   if (bookStatus === "loading" || publishersStatus === "loading" || authorsStatus === "loading") {
     return (
