@@ -21,6 +21,7 @@ function App() {
 
   const dispatch = useDispatch();
   const user = useSelector(state => state.users.user);
+  const loggedIn = useSelector(state => state.users.loggedIn);
   const bookStatus = useSelector(state => state.books.status);
   const publishersStatus = useSelector(state => state.publishers.status);
   const authorsStatus = useSelector(state => state.authors.status);
@@ -31,13 +32,15 @@ function App() {
           res.json().then((user) => 
             {
               dispatch(userAdded(user))
+            })
+            .then(() => {
               dispatch(fetchBooks());
               dispatch(fetchPublishers());
               dispatch(fetchAuthors());
-            });
+            })
         };
     });
-  }, []);
+  }, [loggedIn]);
 
   // useEffect(() => {
   //   dispatch(fetchBooks());

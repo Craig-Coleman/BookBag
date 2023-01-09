@@ -48,6 +48,7 @@ export const deleteUser = createAsyncThunk("users/deleteUser", (id) => {
 
 const initialState = {
     user: null,
+    loggedIn: false,
     status: "idle",
     error: {errors: []},
 };
@@ -81,6 +82,7 @@ const usersSlice = createSlice({
                 state.error = action.payload;
             } else {
             state.user = action.payload;
+            state.loggedIn = true;
             state.error = {errors: []};
         };
             state.status = "idle";
@@ -90,6 +92,7 @@ const usersSlice = createSlice({
         },
         [logout.fulfilled](state) {
             state.user = null;
+            state.loggedIn = false;
         },
         [updateUser.pending](state) {
             state.status = "loading";
