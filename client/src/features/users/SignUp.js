@@ -9,6 +9,9 @@ function SignUp() {
     const [newUsername, setNewUsername] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmNewPassword, setConfirmNewPassword] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
     const [hidden, setHidden] = useState(true);
 
     function handleSignUp(event) {
@@ -16,7 +19,10 @@ function SignUp() {
         const newUserInfo = {
             username: newUsername,
             password: newPassword,
-            password_confirmation: confirmNewPassword
+            password_confirmation: confirmNewPassword,
+            first_name: firstName,
+            last_name: lastName,
+            email: email
         };
         dispatch(signUp(newUserInfo));
         setNewUsername("");
@@ -52,6 +58,24 @@ function SignUp() {
                     placeholder="Confirm New Password"
                     onChange={(event) => setConfirmNewPassword(event.target.value)}
                     value={confirmNewPassword}
+                ></input>
+                <input
+                    type="text"
+                    placeholder="Enter First Name"
+                    onChange={(event) => setFirstName(event.target.value)}
+                    value={firstName}
+                ></input>
+                <input
+                    type="text"
+                    placeholder="Enter Last Name"
+                    onChange={(event) => setLastName(event.target.value)}
+                    value={lastName}
+                ></input>
+                <input
+                    type="text"
+                    placeholder="Enter Email Address"
+                    onChange={(event) => setEmail(event.target.value)}
+                    value={email}
                 ></input>
                 <input type="submit" value="Sign Up"></input>
             </form>

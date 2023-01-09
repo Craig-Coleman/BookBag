@@ -42,11 +42,6 @@ function App() {
     });
   }, [loggedIn]);
 
-  // useEffect(() => {
-  //   dispatch(fetchBooks());
-  //   dispatch(fetchPublishers());
-  //   dispatch(fetchAuthors());
-  // }, [user, dispatch]);
 
   if (bookStatus === "loading" || publishersStatus === "loading" || authorsStatus === "loading") {
     return (
