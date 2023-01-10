@@ -9,6 +9,11 @@ function BookPage() {
     const dispatch = useDispatch();
 
     const book = useSelector(state => state.books.entities).filter(book => book.id === parseInt(params.book_id))[0];
+    const errors = useSelector(state => state.books.error.errors).map(error => {
+        return(
+            <p key={error} className="error" >{error}</p>
+        );
+    });
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -76,6 +81,7 @@ function BookPage() {
                 <p>{book.description}</p>
                 </div>
             </div>
+            {errors}
             <button hidden={btnHidden} className="edit_button" type="button" onClick={showForm}>Edit Book Information</button>
             <div hidden={hidden}>
             <h2 className="form_label" >Edit Book Information Below</h2>
