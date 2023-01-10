@@ -9,7 +9,7 @@ function BookPage() {
     const dispatch = useDispatch();
 
     const book = useSelector(state => state.books.entities).filter(book => book.id === parseInt(params.book_id))[0];
-    const errors = useSelector(state => state.books.error.errors).map(error => {
+    const errors = useSelector(state => state.books.bookError.errors).map(error => {
         return(
             <p key={error} className="error" >{error}</p>
         );

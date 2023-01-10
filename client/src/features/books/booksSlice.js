@@ -38,6 +38,7 @@ const initialState = {
     entities: [],
     status: "idle",
     error: {errors: []},
+    bookError: {errors: []},
     newBook: false,
     deleteBook: false,
 };
@@ -51,7 +52,7 @@ const booksSlice = createSlice({
         },
         resetDeleteBook(state) {
             state.deleteBook = false;
-        }
+        },
     },
     extraReducers: {
         [fetchBooks.pending](state) {
@@ -84,11 +85,11 @@ const booksSlice = createSlice({
         },
         [updateBook.fulfilled](state, action) {
             if (Object.keys(action.payload).includes('errors')){
-                state.error = action.payload;
+                state.bookError = action.payload;
             } else {
                 state.entities = state.entities.filter(book => book.id !== action.payload.id);
                 state.entities.push(action.payload);
-                state.error = {errors: []};
+                state.bookError = {errors: []};
             }
             state.status = "idle";
         },
