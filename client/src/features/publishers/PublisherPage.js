@@ -8,6 +8,7 @@ function PublisherPage() {
 
     const publisher = useSelector(state => state.publishers.entities).filter(publisher => publisher.id === parseInt(params.publisher_id))[0];
 
+    if (publisher) {
     return(
         <div>
             <div className="book_info" >
@@ -20,6 +21,11 @@ function PublisherPage() {
             </div>
         </div>
     )
+    } else {
+        return(
+            <h1>...Loading</h1>
+        )
+    }
 };
 
 export default PublisherPage;

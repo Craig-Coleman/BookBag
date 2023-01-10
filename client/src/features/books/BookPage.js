@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { updateBook } from './booksSlice';
@@ -10,13 +10,25 @@ function BookPage() {
 
     const book = useSelector(state => state.books.entities).filter(book => book.id === parseInt(params.book_id))[0];
 
-    const [title, setTitle] = useState(book.title);
-    const [description, setDescription] = useState(book.description);
-    const [pubYear, setPubYear] = useState(book.year_published);
-    const [length, setLength] = useState(book.length);
-    const [cover, setCover] = useState(book.cover);
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [pubYear, setPubYear] = useState('');
+    const [length, setLength] = useState('');
+    const [cover, setCover] = useState('');
+    const [id, setId] = useState('');
     const [hidden, setHidden] = useState(true);
     const [btnHidden, setBtnHidden] = useState(false);
+
+    useEffect(() => {
+        if (book) {
+        setTitle(book.title)
+        setDescription(book.description)
+        setPubYear(book.year_published)
+        setLength(book.length)
+        setCover(book.cover)
+        setId(book.id)
+        }
+    }, []);
 
     function resetData() {
         setTitle('');
@@ -28,7 +40,7 @@ function BookPage() {
     };
 
     const bookInfo = {
-        id: book.id,
+        id: id,
         title: title,
         description: description,
         year_published: pubYear,
@@ -49,6 +61,7 @@ function BookPage() {
 
     console.log(book)
 
+        if (book) {
     return(
         <div>
             <div className="book_info" >
@@ -110,6 +123,11 @@ function BookPage() {
             </div>
         </div>
     )
+        } else {
+            return (
+                <h1>...Loading</h1>
+            )
+        }
 }
 
 export default BookPage;

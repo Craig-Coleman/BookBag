@@ -8,6 +8,7 @@ function AuthorPage() {
 
     const author = useSelector(state => state.authors.entities).filter(author => author.id === parseInt(params.author_id))[0];
 
+    if (author) {
     return(
         <div>
             <div className="book_info" >
@@ -21,6 +22,11 @@ function AuthorPage() {
             </div>
         </div>
     )
+    } else {
+        return(
+            <h1>...Loading</h1>
+        )
+    }
 }
 
 export default AuthorPage;
