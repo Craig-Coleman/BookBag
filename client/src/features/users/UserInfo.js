@@ -38,6 +38,8 @@ function UserInfo() {
         history.push("/");
     };
 
+
+    if (user) {
     return(
         <div>
             <h1 className="title">My Profile Information</h1>
@@ -82,6 +84,11 @@ function UserInfo() {
             <button className="delete_button" onClick={function() {handleDeleteUser(user.id)}}>Delete My Account</button>
         </div>
     );
+    } else {
+        return(
+            <h1>...Loading</h1>
+        )
+    }
 };
 
 export default UserInfo;
