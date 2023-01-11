@@ -5,7 +5,7 @@ import { addBookAuthor } from '../authors/authorsSlice';
 import { resetNewBook } from './booksSlice';
 import { deleteBookPublisher } from '../publishers/publishersSlice';
 import { deleteBookAuthor } from '../authors/authorsSlice';
-import { resetDeleteBook } from './booksSlice';
+import { resetDeleteBook, clearListErrors } from './booksSlice';
 import NewBookForm from './NewBookForm';
 import BookCard from './BookCard';
 
@@ -24,6 +24,10 @@ function BookList() {
             <p key={error} className="error" >{error}</p>
         );
     });
+
+    useEffect(() => {
+        dispatch(clearListErrors())
+    }, [books]);
 
     useEffect(() => {
         if (newBook) {

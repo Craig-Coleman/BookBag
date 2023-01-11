@@ -56,6 +56,9 @@ const booksSlice = createSlice({
         },
         clearErrors(state) {
             state.bookError = {errors: []};
+        },
+        clearListErrors(state) {
+            state.error = {errors: []};
         }
     },
     extraReducers: {
@@ -113,6 +116,6 @@ const booksSlice = createSlice({
     }
 });
 
-export const { resetNewBook, resetDeleteBook, clearErrors } = booksSlice.actions;
+export const { resetNewBook, resetDeleteBook, clearErrors, clearListErrors } = booksSlice.actions;
 
 export default booksSlice.reducer;
