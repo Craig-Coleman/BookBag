@@ -53,6 +53,9 @@ const booksSlice = createSlice({
         resetDeleteBook(state) {
             state.deleteBook = false;
         },
+        clearErrors(state) {
+            state.bookError = {errors: []};
+        }
     },
     extraReducers: {
         [fetchBooks.pending](state) {
@@ -109,6 +112,6 @@ const booksSlice = createSlice({
     }
 });
 
-export const { resetNewBook, resetDeleteBook } = booksSlice.actions;
+export const { resetNewBook, resetDeleteBook, clearErrors } = booksSlice.actions;
 
 export default booksSlice.reducer;

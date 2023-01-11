@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { updateBook } from './booksSlice';
+import { updateBook, clearErrors } from './booksSlice';
 
 function BookPage() {
 
@@ -35,6 +35,10 @@ function BookPage() {
         setId(book.id)
         }
     }, [books, errors]);
+
+    useEffect(() => {
+        dispatch(clearErrors())
+    }, [book]);
 
     function resetData() {
         setTitle('');
@@ -79,7 +83,9 @@ function BookPage() {
                 <p>{book.description}</p>
                 </div>
             </div>
+            <div id="error">
             {errorList}
+            </div>
             <button className="edit_button" type="button" onClick={showForm}>Edit Book Information</button>
             <div hidden={hidden}>
             <h2 className="form_label" >Edit Book Information Below</h2>
