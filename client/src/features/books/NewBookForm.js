@@ -20,6 +20,7 @@ function NewBookForm() {
     const [pubTitle, setPubTitle] = useState('');
     const [pubEstYear, setPubEstYear] = useState('');
     const [pubGenre, setPubGenre] = useState('');
+    const [pubPic, setPubPic] = useState('');
     const [pubHidden, setPubHidden] = useState(true);
 
     const [authFirst, setAuthFirst] = useState('');
@@ -40,6 +41,7 @@ function NewBookForm() {
         setPublisherId('');
         setCover('');
         setPubTitle('');
+        setPubPic('');
         setPubEstYear('');
         setPubGenre('');
         setPubHidden(true);
@@ -58,7 +60,8 @@ function NewBookForm() {
     const newPublisher = {
             title: pubTitle, 
             year_established: pubEstYear, 
-            primary_genre: pubGenre
+            primary_genre: pubGenre,
+            image: pubPic
         };
 
     const newAuthor = {
@@ -92,11 +95,15 @@ function NewBookForm() {
     function handleClickPub() {
         setPubHidden(false);
         setPublisherId('');
+        const pubSel = document.getElementById('pubSel');
+        pubSel.value = "--Select a Publisher--"
     };
 
     function handleClickAuth() {
         setAuthHidden(false);
         setAuthorId('');
+        const authSel = document.getElementById('authSel');
+        authSel.value = "--Select an Author--"
     };
 
     function handleSelectAuth(event) {
@@ -195,6 +202,12 @@ function NewBookForm() {
                             placeholder="Publisher's Primary Genre"
                             onChange={event => setPubGenre(event.target.value)}
                             value={pubGenre}
+                        ></input>
+                        <input
+                            type="text"
+                            placeHolder="URL of Logo of Publisher"
+                            onChange={event => setPubPic(event.target.value)}
+                            value={pubPic}
                         ></input>
                     </form>
                 </div>

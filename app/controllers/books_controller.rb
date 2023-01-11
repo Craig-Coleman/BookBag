@@ -47,7 +47,8 @@ class BooksController < ApplicationController
             publisher_attributes: [
                 :title, 
                 :year_established, 
-                :primary_genre
+                :primary_genre,
+                :image
             ])
     end
 
