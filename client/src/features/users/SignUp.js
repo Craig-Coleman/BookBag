@@ -28,6 +28,9 @@ function SignUp() {
         setNewUsername("");
         setNewPassword("");
         setConfirmNewPassword("");
+        setFirstName("");
+        setLastName("");
+        setEmail("");
     };
 
     function handleClick() {

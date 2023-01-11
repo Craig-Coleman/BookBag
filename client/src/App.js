@@ -11,7 +11,6 @@ import PublisherPage from './features/publishers/PublisherPage';
 import UserInfo from './features/users/UserInfo';
 import Login from './features/users/Login';
 import SignUp from './features/users/SignUp';
-import Loading from './components/Loading';
 import { userAdded } from './features/users/usersSlice';
 import { fetchBooks } from './features/books/booksSlice';
 import { fetchPublishers } from './features/publishers/publishersSlice';
@@ -22,9 +21,6 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector(state => state.users.user);
   const loggedIn = useSelector(state => state.users.loggedIn);
-  const bookStatus = useSelector(state => state.books.status);
-  const publishersStatus = useSelector(state => state.publishers.status);
-  const authorsStatus = useSelector(state => state.authors.status);
 
   useEffect(() => {
     fetch("/me").then((res) => {
@@ -42,14 +38,8 @@ function App() {
     });
   }, [loggedIn]);
 
+  if (user) { 
 
-  if (bookStatus === "loading" || publishersStatus === "loading" || authorsStatus === "loading") {
-    return (
-      <Loading />
-    )
-  }
-
-  if (user) 
   return (
     <div className="App">
     <Header />
@@ -78,6 +68,7 @@ function App() {
     </Switch>
   </div>
   );
+  }
 
   return (
     <div>

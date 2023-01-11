@@ -11,10 +11,17 @@ function Header() {
     const user = useSelector(state => state.users.user);
 
     function handleLogout() {
-        dispatch(logout());
+        fetch("/logout", {
+            method: "DELETE",
+        }).then((res) => {
+            if (res.ok) {
+                dispatch(logout());
+            }
+        })
         history.push("/");
     };
 
+    if (user) {
     return(
         <div id="header" >
             <div id="header_name">
@@ -24,6 +31,11 @@ function Header() {
             <NavBar></NavBar>
         </div>
     );
+    } else {
+        return(
+            <h1>...Loading</h1>
+        )
+    }
 };
 
 export default Header;

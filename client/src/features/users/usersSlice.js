@@ -23,12 +23,6 @@ export const login = createAsyncThunk("users/login", (userInfo) => {
 
 });
 
-export const logout = createAsyncThunk("users/logout", () => {
-    fetch("/logout", {
-        method: "DELETE",
-    });
-});
-
 export const updateUser = createAsyncThunk("users/updateUser", (userInfo) => {
     return fetch(`users/${userInfo.id}`, {
         method: "PATCH",
@@ -59,6 +53,10 @@ const usersSlice = createSlice({
     reducers: {
         userAdded(state, action) {
             state.user = action.payload;
+        },
+        logout(state) {
+            state.user = null;
+            state.loggedIn = false;
         }
     },
     extraReducers: {
@@ -70,6 +68,7 @@ const usersSlice = createSlice({
                 state.error = action.payload;
             } else {
                 state.user = action.payload;
+                state.loggedIn = true;
                 state.error = {errors: []};
         };
             state.status = "idle";
@@ -86,13 +85,6 @@ const usersSlice = createSlice({
             state.error = {errors: []};
         };
             state.status = "idle";
-        },
-        [logout.pending](state) {
-            state.status = "loading";
-        },
-        [logout.fulfilled](state) {
-            state.user = null;
-            state.loggedIn = false;
         },
         [updateUser.pending](state) {
             state.status = "loading";
@@ -116,6 +108,6 @@ const usersSlice = createSlice({
     }
 });
 
-export const { userAdded } = usersSlice.actions;
+export const { userAdded, logout } = usersSlice.actions;
 
 export default usersSlice.reducer;
