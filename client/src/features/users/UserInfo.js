@@ -28,7 +28,8 @@ function UserInfo() {
             id: user.id,
             first_name: firstName,
             last_name: lastName,
-            email: email
+            email: email,
+            image: imageUrl
         };
         dispatch(updateUser(newUserInfo));
     };

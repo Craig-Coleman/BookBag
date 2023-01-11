@@ -93,6 +93,7 @@ const usersSlice = createSlice({
             if (Object.keys(action.payload).includes('errors')){
                 state.error = action.payload;
             } else {
+                console.log(action.payload)
             state.user = action.payload;
             state.error = {errors: []};
         };
