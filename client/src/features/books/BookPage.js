@@ -8,8 +8,10 @@ function BookPage() {
     const params = useParams();
     const dispatch = useDispatch();
 
-    const book = useSelector(state => state.books.entities).filter(book => book.id === parseInt(params.book_id))[0];
-    const errors = useSelector(state => state.books.bookError.errors).map(error => {
+    const books = useSelector(state => state.books.entities)
+    const book = books.filter(book => book.id === parseInt(params.book_id))[0];
+    const errors = useSelector(state => state.books.bookError.errors);
+    const errorList = useSelector(state => state.books.bookError.errors).map(error => {
         return(
             <p key={error} className="error" >{error}</p>
         );
@@ -22,7 +24,6 @@ function BookPage() {
     const [cover, setCover] = useState('');
     const [id, setId] = useState('');
     const [hidden, setHidden] = useState(true);
-    const [btnHidden, setBtnHidden] = useState(false);
 
     useEffect(() => {
         if (book) {
@@ -33,7 +34,7 @@ function BookPage() {
         setCover(book.cover)
         setId(book.id)
         }
-    }, []);
+    }, [books, errors]);
 
     function resetData() {
         setTitle('');
@@ -61,10 +62,7 @@ function BookPage() {
 
     function showForm() {
         setHidden(false);
-        setBtnHidden(true);
     }
-
-    console.log(book)
 
         if (book) {
     return(
@@ -81,8 +79,8 @@ function BookPage() {
                 <p>{book.description}</p>
                 </div>
             </div>
-            {errors}
-            <button hidden={btnHidden} className="edit_button" type="button" onClick={showForm}>Edit Book Information</button>
+            {errorList}
+            <button className="edit_button" type="button" onClick={showForm}>Edit Book Information</button>
             <div hidden={hidden}>
             <h2 className="form_label" >Edit Book Information Below</h2>
             <form onSubmit={(event) => handleEditBook(event)}>
