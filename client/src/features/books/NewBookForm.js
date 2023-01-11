@@ -49,6 +49,10 @@ function NewBookForm() {
         setAuthBest('');
         setAuthNum('');
         setAuthHidden(true);
+        const pubSel = document.getElementById('pubSel');
+        pubSel.value = "--Select a Publisher--"
+        const authSel = document.getElementById('authSel');
+        authSel.value = "--Select an Author--"
     };
 
     const newPublisher = {
@@ -148,6 +152,7 @@ function NewBookForm() {
                     value={length}
                 ></input>
                 <select 
+                    id="pubSel"
                     defaultValue="--Select a Publisher--" 
                     onChange={(event) => handleSelectPub(event)}>
                         <option hidden value="--Select a Publisher--">--Select a Publisher--</option>
@@ -156,6 +161,7 @@ function NewBookForm() {
                         })}
                 </select>
                 <select 
+                    id="authSel"
                     defaultValue="--Select an Author--" 
                     onChange={(event) => handleSelectAuth(event)}>
                         <option hidden value="--Select an Author--">--Select an Author--</option>
