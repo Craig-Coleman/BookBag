@@ -6,7 +6,6 @@ export const fetchBooks = createAsyncThunk("books/fetchBooks", () => {
 });
 
 export const addBook = createAsyncThunk("books/createBook", (newBook) => {
-    console.log(newBook)
     return fetch('/books', {
         method: "POST",
         headers: {

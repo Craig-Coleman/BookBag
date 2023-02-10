@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUser, deleteUser } from './usersSlice';
+import { updateUser, logout } from './usersSlice';
 
 function UserInfo() {
 
@@ -35,7 +35,13 @@ function UserInfo() {
     };
 
     function handleDeleteUser(id) {
-        dispatch(deleteUser(id));
+        fetch(`/users/${id}`, {
+            method: "DELETE",
+        }).then((res) => {
+            if (res.ok) {
+                dispatch(logout());
+            }
+        });
         history.push("/");
     };
 

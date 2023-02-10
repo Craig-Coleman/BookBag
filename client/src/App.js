@@ -38,6 +38,8 @@ function App() {
     });
   }, [loggedIn]);
 
+  console.log(user)
+
   if (user) { 
 
   return (

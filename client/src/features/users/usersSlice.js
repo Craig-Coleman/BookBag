@@ -34,12 +34,6 @@ export const updateUser = createAsyncThunk("users/updateUser", (userInfo) => {
     .then(res => res.json())
 });
 
-export const deleteUser = createAsyncThunk("users/deleteUser", (id) => {
-    fetch(`/users/${id}`, {
-        method: "DELETE",
-    });
-});
-
 const initialState = {
     user: null,
     loggedIn: false,
@@ -93,19 +87,11 @@ const usersSlice = createSlice({
             if (Object.keys(action.payload).includes('errors')){
                 state.error = action.payload;
             } else {
-                console.log(action.payload)
             state.user = action.payload;
             state.error = {errors: []};
         };
             state.status = "idle";
         },
-        [deleteUser.pending](state) {
-            state.status = "loading";
-        },
-        [deleteUser.fulfilled](state) {
-            state.user = null;
-            state.status = "idle";
-        }
     }
 });
 
