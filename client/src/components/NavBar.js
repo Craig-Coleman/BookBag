@@ -12,21 +12,21 @@ function NavBar() {
             }}
         >My Books</NavLink>
         <NavLink
-            to="/authors"
+            to="/authorspage"
             exact
             activeStyle={{
                 background: "darkblue",
             }}
         > My Authors</NavLink>
         <NavLink
-        to="/publishers"
+        to="/publisherspage"
         exact
         activeStyle={{
             background: "darkblue",
         }}
         >My Publishers</NavLink>
         <NavLink
-            to="/user"
+            to="/userpage"
             exact
             activeStyle={{
                 background: "darkblue",

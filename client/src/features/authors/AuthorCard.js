@@ -6,7 +6,7 @@ function AuthorCard({ author }) {
     const history = useHistory();
 
     function handleClick() {
-        history.push(`/authors/${author.id}`)
+        history.push(`/authorspage/${author.id}`)
     };
 
     return(

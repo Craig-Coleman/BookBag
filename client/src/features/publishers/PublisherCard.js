@@ -6,7 +6,7 @@ function PublisherCard({ publisher}) {
     const history = useHistory();
 
     function handleClick() {
-        history.push(`/publishers/${publisher.id}`)
+        history.push(`/publisherspage/${publisher.id}`)
     };
 
     return(

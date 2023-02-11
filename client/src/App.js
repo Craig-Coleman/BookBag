@@ -47,22 +47,22 @@ function App() {
       <Route exact path="/">
           <BookList />
       </Route>
-      <Route path="/books/:book_id">
+      <Route path="/bookspage/:book_id">
           <BookPage />
       </Route>
-      <Route exact path="/publishers/">
+      <Route exact path="/publisherspage/">
           <PublishersList />
       </Route>
-      <Route path="/publishers/:publisher_id">
+      <Route path="/publisherspage/:publisher_id">
           <PublisherPage />
       </Route>
-      <Route  exact path="/authors">
+      <Route  exact path="/authorspage">
           <AuthorsList />
       </Route>
-      <Route  path="/authors/:author_id">
+      <Route  path="/authorspage/:author_id">
           <AuthorPage />
       </Route>
-      <Route path="/user">
+      <Route path="/userpage">
           <UserInfo />
       </Route>
     </Switch>

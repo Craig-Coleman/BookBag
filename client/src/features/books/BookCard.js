@@ -9,7 +9,7 @@ function BookCard({ book }) {
     const history = useHistory();
 
     function handleClick() {
-        history.push(`/books/${book.id}`)
+        history.push(`/bookspage/${book.id}`)
     };
 
     function handleDelete() {
